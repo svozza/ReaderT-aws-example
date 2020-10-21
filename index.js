@@ -39,5 +39,3 @@ const flow = bucket => ReaderAsync
 module.exports = {
     run: bucket => flow(bucket).runWith(s3)
 }
-
-
