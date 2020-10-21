@@ -26,6 +26,7 @@ run('myBucket').fork(log('rej'), log('res'));
 
 // using async / await
 const objects = await run('myBucket').toPromise();
+console.log(objects);
 ```
 
 ### Running unit tests
