@@ -2,6 +2,7 @@
 
 The node.js script in `index.js` uses the `ReaderT` monad transformer (from 
 [Crocks](https://crocks.dev/docs/crocks/ReaderT.html)) to pass dependencies to the effectful functions.
+The exported `run` function will retrieve all the objects in a specified S3 Bucket.
 
 ### To use
 
