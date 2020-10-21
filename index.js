@@ -19,7 +19,7 @@ const asyncifyAllAws = module => {
 const s3 = asyncifyAllAws(new AWS.S3());
 
 // listObjects : String -> AsyncReader AWS.S3 Object
-const listObjects = Bucket => ReaderAsync(s3 => s3.listObjectsV2Async({Bucket, MaxKeys: 2}));
+const listObjects = Bucket => ReaderAsync(s3 => s3.listObjectsV2Async({Bucket, MaxKeys: 5}));
 
 // listObjects : String -> AsyncReader AWS.S3 [Object]
 const getObjects = C.curry((Bucket, keys) => ReaderAsync(s3 => all(keys.map(Key => s3.getObjectAsync({Bucket, Key})))));
