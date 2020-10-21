@@ -33,10 +33,13 @@ const log = label => console.log.bind(console, label + ':')
 //     //x => of(x.Contents.map(c => getObject(x.Name, c.Key)))
 // );
 
-ReaderAsync.of('svozza-local-cfn')
+const flow = bucket => ReaderAsync
+    .of(bucket)
     .chain(listObjects)
     .chain(({Contents, Name}) => getObjects(Name, C.map(x => x.Key, Contents)))
-    .runWith(s3)
-    .fork(log('rej'), log('res'))
+
+module.exports = {
+    run: bucket => flow(bucket).runWith(s3)
+}
 
 
