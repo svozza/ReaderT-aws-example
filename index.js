@@ -24,8 +24,6 @@ const listObjects = Bucket => ReaderAsync(s3 => s3.listObjectsV2Async({Bucket, M
 // listObjects : String -> AsyncReader AWS.S3 [Object]
 const getObjects = C.curry((Bucket, keys) => ReaderAsync(s3 => all(keys.map(Key => s3.getObjectAsync({Bucket, Key})))));
 
-const log = label => console.log.bind(console, label + ':')
-
 // const flow = pipeK(
 //     of,
 //     listObjects,
