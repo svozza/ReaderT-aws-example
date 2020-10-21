@@ -39,13 +39,13 @@ describe('index.js', () => {
         });
 
         it('should fail when it encounters an error getting objects', async () => {
-            const mockS3InstanceListFail = {
+            const mockS3InstanceGetFail = {
                 listObjectsV2Async: ({Bucket}) => Async.Resolved(mockS3[Bucket]),
                 getObjectAsync: ({Bucket, Key}) => Async.Rejected(new Error('getObject failed')),
             }
 
             return flow('myBucket')
-                .runWith(mockS3InstanceListFail)
+                .runWith(mockS3InstanceGetFail)
                 .toPromise()
                 .catch(err => assert.strictEqual(err.message, 'getObject failed'));
         });
