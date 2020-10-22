@@ -3,7 +3,7 @@
 The node.js script in `index.js` uses the `ReaderT` monad transformer (from 
 [Crocks](https://crocks.dev/docs/crocks/ReaderT.html)) to pass dependencies to the effectful functions.
 The monad stack comprises the [Reader](https://crocks.dev/docs/crocks/Reader.html) and [Async](https://crocks.dev/docs/crocks/Async.html) 
-monads. The exported `run` function will retrieve all the objects in a specified S3 Bucket.
+monads. The exported `run` function will retrieve the first 5 objects in a specified S3 Bucket.
 
 ### To use
 
